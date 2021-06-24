@@ -31,7 +31,7 @@ def generate_projects():
 def _main(host, user, passwd):
     es = Elasticsearch([host], http_auth=(user, passwd), use_ssl=True, verify_certs=False)
     # Cleanup es index
-    es.indices.delete(index='whitebox_projects')
+    es.indices.delete(index='whitebox_projects', ignore=[404])
 
     actions = streaming_bulk(
         client=es, index="whitebox_projects", actions=generate_projects()
