@@ -7,7 +7,7 @@ import yaml
 
 
 def generate_projects():
-    with open("../data.yml") as f:
+    with open("./data.yml") as f:
         x = yaml.load(f, Loader=yaml.FullLoader)
         users = x.get("users")
         for user in users:
